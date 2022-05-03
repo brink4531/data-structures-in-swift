@@ -1,8 +1,6 @@
 import UIKit
 
-
 class Node<T: Comparable>: Comparable {
-    
     var value: T
     
     weak var parent: Node<T>?
@@ -11,16 +9,12 @@ class Node<T: Comparable>: Comparable {
     
     var height: Int = 0
     
-    var balance: Int {
-        return (leftNode?.height ?? -1) - (rightNode?.height ?? -1)
-    }
+    var balance: Int { return (leftNode?.height ?? -1) - (rightNode?.height ?? -1) }
     
     var isBalanced: Bool { return abs(balance) < 2 }
     var isNotBalanced: Bool { return !isBalanced }
     
-    init(value: T) {
-        self.value = value
-    }
+    init(value: T) { self.value = value }
     
     public func setLeftNode(_ leftNode: Node<T>?) {
         self.leftNode = leftNode
@@ -52,7 +46,6 @@ enum AddOperationStatus {
 }
 
 class AVLTree<T: Comparable> {
-    
     var root: Node<T>?
     private var temporaryRoot: Node<T>?
     
@@ -191,10 +184,6 @@ class AVLTree<T: Comparable> {
         }
     }
 }
-
-
-
-
 
 let tree = AVLTree<Int>()
 
